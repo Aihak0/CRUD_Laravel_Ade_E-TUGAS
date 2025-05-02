@@ -24,7 +24,7 @@
                                         <form method="POST" action="{{ route('loginProses') }}">
                                             @csrf
                                             <div class="form-floating mb-3">
-                                                <input class="form-control @error('email') is-invalid @enderror" id="inputEmail" type="email" placeholder="name@example.com" />
+                                                <input class="form-control @error('email') is-invalid @enderror" id="inputEmail" type="email" placeholder="name@example.com" name="email" value="{{ old('email') }}" />
                                                 <label for="inputEmail">Email address</label>
                                                 @error('email')
                                                     <small class="text-danger">
@@ -33,7 +33,7 @@
                                                 @enderror
                                             </div>
                                             <div class="form-floating mb-3">
-                                                <input class="form-control @error('password') is-invalid @enderror" id="inputPassword" type="password" placeholder="Password" />
+                                                <input class="form-control @error('password') is-invalid @enderror" id="inputPassword" type="password" placeholder="Password" name="password" />
                                                 <label for="inputPassword">Password</label>
                                                 @error('password')
                                                     <small class="text-danger">
@@ -65,5 +65,25 @@
         </div>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
         <script src="{{ asset('landingpage/js/scripts.js') }}"></script>
+        <script src="{{ asset('sweetalert/dist/sweetalert2.all.min.js') }}"></script>
     </body>
+    <script>
+    @if (session('success'))
+        Swal.fire({
+            title: "Sukses!",
+            text: @json(session('success')),
+            icon: "success"
+        });
+    @endif  
+
+    @if (session('error'))
+        Swal.fire({
+            title: "Nakal!",
+            text: @json(session('error')),
+            icon: "error"
+        });
+    @endif
+</script>
+
+
 </html>

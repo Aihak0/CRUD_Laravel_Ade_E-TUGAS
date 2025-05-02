@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Redis;
 
 class AuthController extends Controller
 {
@@ -19,5 +21,19 @@ class AuthController extends Controller
             'password.required' => 'Password tidak boleh kosong',
             'password.min' => 'Password minimal 8 karakter',
         ]);
+        $data = array(
+            'email' => $request->email,
+            'password' => $request->password,
+        );
+        if(Auth::attempt($data)){
+            return redirect()->route('dashboard')->with('success', 'Anda berhasil login');
+        }else{
+            return redirect()->back()->with('error', 'Email atau password salah');
+        }
+    }
+    public function logout(){
+        Auth::logout();
+        return redirect()->route('login')->with('success', 'Anda Berhasil Logout');
+        
     }
 }
