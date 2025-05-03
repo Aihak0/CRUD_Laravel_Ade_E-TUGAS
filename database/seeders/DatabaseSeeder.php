@@ -27,7 +27,7 @@ class DatabaseSeeder extends Seeder
             'email' => 'joko@gmail.com',
             'jabatan' => 'Admin',
             'password' => Hash::make('123123123'),
-            'is-tugas' => false,
+            'is_tugas' => false,
         ]);
     }
 }

@@ -51,7 +51,8 @@
                     </div>
                     <div class="sb-sidenav-footer">
                         <div class="small">Logged in as:</div>
-                        Start Bootstrap
+                       
+                        <span class="badge badge-light text-dark"> {{ auth()->user()->nama }}/{{ auth()->user()->jabatan }}</span>
                     </div>
                 </nav>
             </div>
