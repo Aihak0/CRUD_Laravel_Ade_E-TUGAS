@@ -43,7 +43,7 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data User
                             </a>
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="{{ route('tugas') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Tugas
                             </a>

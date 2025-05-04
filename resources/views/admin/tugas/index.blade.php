@@ -17,23 +17,32 @@
                                     <thead>
                                         <tr>
                                             <th>Nama</th>
-                                            <th>Email</th>
-                                            <th>Jabatan</th>
-                                            <th>Status</th>
-                                            <th>Action</th>
+                                            <th>Tugas</th>
+                                            <th>Tanggal Mulai</th>
+                                            <th>Tanggal Selesai</th>
                                         </tr>
                                     </thead>
                                     <tbody>
+                                    @foreach($tugas as $item)
                                         <tr>
-                                            <td>Joko</td>
-                                            <td>Admin@gmail</td>
-                                            <td>Admin</td>
-                                            <td>active</td>
+                                            <td class="text-center">{{ $loop->iteration }}</td>
+                                            <td>{{ $item->nama }}</td>
+                                            <td>{{ $item->tugas }}</td>
                                             <td>
-                                                <a href="#" class="btn btn-danger" >Hapus</a>
-                                                <a href="#" class="btn btn-warning" >Edit</a>
+                                                <span class="badge badge-info">{{ $item->tanggal_mulai }}</span>
                                             </td>
+                                            <td>
+                                                <span class="badge badge-info">{{ $item->tanggal_selesai }}</span>
+                                            </td>
+                                            
+                                            <td class="text-center">
+                                                <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}"><i class="fas fa-trash"></i></button>
+                                                <a href="{{ route('') }}" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
+                                                @include('layouts/modal')
+                                            </td>
+
                                         </tr>
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
