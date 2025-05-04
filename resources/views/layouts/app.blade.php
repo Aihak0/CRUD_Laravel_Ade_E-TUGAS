@@ -4,7 +4,7 @@
     <body class="sb-nav-fixed">
         <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
             <!-- Navbar Brand-->
-            <a class="navbar-brand ps-3" href="index.html">Baaboss</a>
+            <a class="navbar-brand ps-3" href="{{ route('welcome') }}">Baaboss</a>
             <!-- Sidebar Toggle-->
             <button class="btn btn-link btn-sm order-1 order-lg-0 me-4 me-lg-0" id="sidebarToggle" href="#!"><i class="fas fa-bars"></i></button>
             <!-- Navbar Search-->
@@ -37,16 +37,25 @@
                                 <div class="sb-nav-link-icon"><i class="fas fa-tachometer-alt"></i></div>
                                 Dashboard
                             </a>
-                            <div class="sb-sidenav-menu-heading disable">Menu</div>
+                            @if(auth()->user()->jabatan == 'Admin')
+                            <div class="sb-sidenav-menu-heading disable">Menu Admin</div>
                           
-                            <a class="nav-link   {{ $menuAdminUser ?? '' }}" href="/user">
+                            <a class="nav-link {{ $menuAdminUser ?? '' }}" href="/user">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Data User
                             </a>
-                            <a class="nav-link" href="{{ route('tugas') }}">
+                            <a class="nav-link {{ $menuAdminTugas ?? '' }}" href="{{ route('tugas') }}">
                                 <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
                                 Tugas
                             </a>
+                            @else
+                            <div class="sb-sidenav-menu-heading disable">Menu Karyawan</div>
+                          
+                            <a class="nav-link {{ $menuKaryawanTugas ?? '' }}" href="{{ route('tugas') }}">
+                                <div class="sb-nav-link-icon"><i class="fas fa-chart-area"></i></div>
+                                Tugas
+                            </a>
+                            @endif
                         </div>
                     </div>
                     <div class="sb-sidenav-footer">

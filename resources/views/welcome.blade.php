@@ -30,7 +30,11 @@
                         <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                         <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
                         <li class="nav-item"><a class="nav-link" href="#signup">Contact</a></li>
-                        <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        @auth
+                            <li class="nav-item"><a class="nav-link" href="{{ route('dashboard') }}">Dashboard</a></li>
+                        @else
+                            <li class="nav-item"><a class="nav-link" href="{{ route('login') }}">Login</a></li>
+                        @endauth
                     </ul>
                 </div>
             </div>
