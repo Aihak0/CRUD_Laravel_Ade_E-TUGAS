@@ -6,7 +6,7 @@
                                     <a href="{{ route('userCreate') }}" class="btn btn-primary" >+ Tambah</a>
                                 </div>
                                 <div>
-                                    <a href="#" class="btn btn-success" >Excel</a>
+                                    <a href="{{ route('userExcel') }}" class="btn btn-success" >Excel</a>
                                     <a href="#" class="btn btn-danger" >PDF</a>
                                 </div>
                             </div>

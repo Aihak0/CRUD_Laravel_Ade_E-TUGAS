@@ -5,10 +5,6 @@
                                 <div class="mb-1 mr-2">
                                     <a href="{{ route('user') }}" class="btn btn-success" ><- Kembali</a>
                                 </div>
-                                <div>
-                                    <a href="#" class="btn btn-success" >Excel</a>
-                                    <a href="#" class="btn btn-danger" >PDF</a>
-                                </div>
                             </div>
                             <div class="card-body">
                             <form action="{{ route('userUpdate', $user->id) }}" method="POST">
