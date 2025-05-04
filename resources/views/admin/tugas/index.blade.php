@@ -6,7 +6,7 @@
                                     <a href="{{ route('tugasCreate') }}" class="btn btn-primary" >+ Tambah</a>
                                 </div>
                                 <div>
-                                    <a href="#" class="btn btn-success" >Excel</a>
+                                    <a href="{{ route('tugasExcel') }}" class="btn btn-success" >Excel</a>
                                     <a href="#" class="btn btn-danger" >PDF</a>
                                 </div>
                             </div>
