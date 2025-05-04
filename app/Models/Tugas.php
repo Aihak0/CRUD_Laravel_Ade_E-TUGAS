@@ -7,7 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tugas extends Model
 {
-    public function tugas(){
+    use HasFactory;
+
+    public function user()
+    {
         return $this->belongsTo(User::class);
-   }
+    }
 }
