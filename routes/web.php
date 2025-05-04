@@ -30,4 +30,5 @@ Route::middleware('checkLogin', )->group(function(){
     Route::post('tugas/update/{id}', [TugasController::class, 'update'])->name('tugasUpdate');
     Route::get('tugas/destroy/{id}', [TugasController::class, 'destroy'])->name('tugasDestroy');
     Route::get('tugas/excel', [TugasController::class, 'excel'])->name('tugasExcel');
+    Route::get('tugas/pdf', [TugasController::class, 'pdf'])->name('tugasPdf');
 });

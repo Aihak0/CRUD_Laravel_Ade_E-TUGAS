@@ -92,14 +92,14 @@ class TugasController extends Controller
         $filename = now()->format('d-m-Y H.i.s');
         return Excel::download(new TugasExport, 'DataTugas_'.$filename.'.xlsx');
     }
-    // public function pdf(){
-    //     $filename = now()->format('d-m-Y H.i.s');
-    //     $data = array(
-    //         'user' => User::get(),
-    //         'tanggal' => now()->format('d-m-Y'),
-    //         'jam' => now()->format('H.i.s'),
-    //     );
-    //     $pdf = Pdf::loadView('admin/user/pdf', $data);
-    //     return $pdf->setPaper('a4', 'landscape')->stream('DataUser_'.$filename.'.pdf');
-    // }
+    public function pdf(){
+        $filename = now()->format('d-m-Y H.i.s');
+        $data = array(
+            'tugas' => Tugas::with('user')->get(),
+            'tanggal' => now()->format('d-m-Y'),
+            'jam' => now()->format('H.i.s'),
+        );
+        $pdf = Pdf::loadView('admin/tugas/pdf', $data);
+        return $pdf->setPaper('a4', 'landscape')->stream('DataTugas_'.$filename.'.pdf');
+    }
 }
