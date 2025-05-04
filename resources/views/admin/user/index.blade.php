@@ -7,7 +7,7 @@
                                 </div>
                                 <div>
                                     <a href="{{ route('userExcel') }}" class="btn btn-success" >Excel</a>
-                                    <a href="#" class="btn btn-danger" >PDF</a>
+                                    <a href="{{ route('userPdf') }}" class="btn btn-danger" target="__blank" >PDF</a>
                                 </div>
                             </div>
                             <div class="card-body">
