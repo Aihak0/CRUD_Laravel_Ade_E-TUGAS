@@ -39,8 +39,9 @@
                                             
                                             <td class="text-center">
                                                 <button class="btn btn-danger" data-toggle="modal" data-target="#exampleModalCenter{{ $item->id }}"><i class="fas fa-trash"></i></button>
-                                                <a href="" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
-                                                @include('layouts/modal')
+                                                <button class="btn btn-info" data-toggle="modal" data-target="#modalInfo{{ $item->id }}"><i class="fas fa-eye"></i></button>
+                                                <a href="{{ route('tugasEdit', $item->id) }}" class="btn btn-warning" ><i class="fas fa-edit"></i></a>
+                                                @include('admin/tugas/modal')
                                             </td>
 
                                         </tr>
